@@ -1,0 +1,61 @@
+{
+  "connection": "default",
+  "collectionName": "team",
+  "info": {
+    "name": "team",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "sexe": {
+      "enum": [
+        "Homme",
+        "Femme"
+      ],
+      "default": "Homme",
+      "type": "enumeration"
+    },
+    "section": {
+      "default": "A",
+      "type": "enumeration",
+      "enum": [
+        "A",
+        "B",
+        "U21",
+        "U20",
+        "U19",
+        "U17",
+        "U15"
+      ]
+    },
+    "club": {
+      "model": "club",
+      "via": "teams"
+    },
+    "name": {
+      "default": "",
+      "type": "string"
+    },
+    "stadium": {
+      "model": "stadium",
+      "via": "team"
+    },
+    "articles": {
+      "collection": "article",
+      "dominant": true,
+      "via": "teams"
+    },
+    "seasonteams": {
+      "collection": "seasonteam",
+      "via": "teams"
+    },
+    "lineupteam": {
+      "model": "lineupteam",
+      "via": "team"
+    }
+  }
+}
